@@ -1,20 +1,7 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-
-import AnimatedCounter from "../components/AnimatedCounter";
-import Button from "../components/Button";
-import { words } from "../constants";
-import HeroExperience from "../components/models/hero_models/HeroExperience";
-
+import { words } from "../Constants";
+import Button from "../Components/Button";
+import HeroExperience from "../Components/Models/HeroExperience";
 const Hero = () => {
-  useGSAP(() => {
-    gsap.fromTo(
-      ".hero-text h1",
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" }
-    );
-  });
-
   return (
     <section id="hero" className="relative overflow-hidden">
       <div className="absolute top-0 left-0 z-10">
@@ -22,7 +9,6 @@ const Hero = () => {
       </div>
 
       <div className="hero-layout">
-        {/* LEFT: Hero Content */}
         <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
           <div className="flex flex-col gap-7">
             <div className="hero-text">
@@ -30,14 +16,14 @@ const Hero = () => {
                 Shaping
                 <span className="slide">
                   <span className="wrapper">
-                    {words.map((word, index) => (
+                    {words.map((word) => (
                       <span
-                        key={index}
+                        key={word.text}
                         className="flex items-center md:gap-3 gap-1 pb-2"
                       >
                         <img
                           src={word.imgPath}
-                          alt="person"
+                          alt={word.text}
                           className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50"
                         />
                         <span>{word.text}</span>
@@ -46,34 +32,21 @@ const Hero = () => {
                   </span>
                 </span>
               </h1>
+
               <h1>into Real Projects</h1>
               <h1>that Deliver Results</h1>
+              <p className="text-white-50 md:text-xl relative z-10 pointer-events-auto ">
+                I’m <a href="https://google.com" target="_blank">Vishnubhargav Donthireddy</a>, a Bangalore based developer
+                <br/>passionate about turning ideas into reality through code.
+              </p>
             </div>
-
-            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Adrian, a developer based in Croatia with a passion for
-              code.
-            </p>
-
-            <Button
-              text="See My Work"
-              className="md:w-80 md:h-16 w-60 h-12"
-              id="counter"
-            />
+            <Button text="See my Work" className="md:w-80 md:h-16 w-60 h-12" />
           </div>
         </header>
-
-        {/* RIGHT: 3D Model or Visual */}
-        <figure>
-          <div className="hero-3d-layout">
-            <HeroExperience />
-          </div>
-        </figure>
+        <figure><div className="hero-3d-layout"><HeroExperience/> </div></figure>
       </div>
-
-      <AnimatedCounter />
     </section>
-  );
-};
+  )
+}
 
 export default Hero;
