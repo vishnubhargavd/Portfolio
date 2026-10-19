@@ -1,7 +1,8 @@
-import { words } from "../Constants";
-import Button from "../Components/Button";
-import HeroExperience from "../Components/Models/HeroExperience";
-import AnimatedCounter from "../Components/AnimatedCounter";
+import { words } from "../constants";
+import Button from "../components/Button";
+import HeroExperience from "../components/models/HeroExperience";
+import AnimatedCounter from "../components/AnimatedCounter";
+
 const Hero = () => {
   return (
     <section id="hero" className="relative overflow-hidden">
